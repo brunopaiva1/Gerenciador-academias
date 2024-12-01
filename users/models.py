@@ -1,15 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
 
-class UserProfileExample(models.Model):
+class Usuario(models.Model):
 
-    phone_number = models.CharField(max_length=12)
-    address = models.CharField(max_length=150)
-    birth_date = models.DateField()
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    numero = models.CharField(max_length=12)
+    endereço = models.CharField(max_length=150)
+    aniversario = models.DateField()
+    ativo = models.BooleanField(default=True)
+    data_cadastro = models.DateTimeField(auto_now_add=True)
+    ultima_atualizacao = models.DateTimeField(auto_now=True)
+    academia = models.ForeignKey('academia.Academia', on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = "Profile"
-        verbose_name_plural = "Profiles"
+        verbose_name = "Usuario"
+        verbose_name_plural = "Usuarios"
