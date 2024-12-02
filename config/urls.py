@@ -22,12 +22,14 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from users.api.views import UsuarioViewSet
 from academia.api.views import AcademiaViewSet
 from cliente.api.views import ClienteVewSet
+from funcionario.api.views import FuncionarioViewSet
 
 router = SimpleRouter()
 
 router.register("users", UsuarioViewSet, basename="users")
 router.register("academia", AcademiaViewSet, basename="academia")
 router.register("cliente", ClienteVewSet, basename="cliente")
+router.register("funcionario", FuncionarioViewSet, basename="funcionario")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
