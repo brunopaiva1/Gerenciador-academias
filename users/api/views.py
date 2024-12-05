@@ -17,6 +17,7 @@ class FuncionarioViewSet(ModelViewSet):
     serializer_class = FuncionarioSerializer
     permission_classes = [IsAuthenticated]
     queryset = Funcionario.objects.all()
+    filterset_fields = ['cargo', 'ativo', 'academia']
 
 
 class ClienteViewSet(ModelViewSet):
@@ -24,3 +25,4 @@ class ClienteViewSet(ModelViewSet):
     serializer_class = ClienteSerializer
     permission_classes = [IsAuthenticated]
     queryset = Cliente.objects.all()
+    filterset_fields = ['plano', 'ativo', 'academia']
