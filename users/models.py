@@ -35,7 +35,17 @@ class Cliente(Usuario):
 
 class Funcionario(Usuario):
 
-    cargo = models.CharField(max_length=50)
+    CARGOS = [
+        ('Gerente', 'Gerente'),
+        ('Instrutor', 'Instrutor'),
+        ('Recepcionista', 'Recepcionista'),
+    ]
+
+    cargo = models.CharField(
+        max_length=50,
+        choices=CARGOS,
+        default='Instrutor'
+    )
     salario = models.DecimalField(max_digits=10, decimal_places=2)
     data_admissao = models.DateField()
     horario_trabalho_inicio = models.TimeField()
