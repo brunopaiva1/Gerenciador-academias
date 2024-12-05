@@ -20,7 +20,17 @@ class Usuario(models.Model):
 
 class Cliente(Usuario):
 
-    plano = models.CharField(max_length=50)
+    PLANO = [
+        ('Mensal', 'Mensal'),
+        ('Semestral', 'Semestral'),
+        ('Anual', 'Anual'),
+    ]
+
+    plano = models.CharField(
+        max_length=50,
+        choices=PLANO,
+        default='Mensal',
+        )
     data_inicio_plano = models.DateField()
     data_fim_plano = models.DateField()
     observacoes = models.TextField(blank=True, null=True)
