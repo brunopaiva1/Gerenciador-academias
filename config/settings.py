@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     "drf_spectacular",
     "users",
     "academia",
-    "cliente",
-    "funcionario",
 ]
 
 MIDDLEWARE = [
