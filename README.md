@@ -1,26 +1,27 @@
-#### Quick Install
+#### Idealização do projeto
+Este projeto é referente a disciplina de manutenção de software da graduação em Tecnologia da informação e visa criar uma API de gerenciamento de academias
 
-This guide aims to jump start the project settings and bring a fast hands-on DRF Project. However, to enable and run the project, some commands are still required.
+A estrutura inicial do projeto foi retirada do repositorio do [Laboratório de Inovação em Software e Automação](https://github.com/lisa-ufersa)
 
-- **Step 1** - Create a virtual python environment to install all required dependencies:
+#### Tutorial de instalação 
+
+- **Passo 1** - Crie o ambiente virtual 
 ~~~
     python3 -m venv venv
 ~~~
 
-- **Step 2** - Activate the virtual python environment:
+- **Passo 2** - Ative o ambiente virtual
 ~~~
     . venv/bin/activate
 ~~~
 
-- **Step 3** - Install all dependencies:
+- **Passo 3** - Instale as dependencias
 ~~~
     pip install -r requirements.txt
 ~~~
 
-- **Step 4** - Run internal server and fun! ;)
+- **Passo 4** - Rode o servidor interno
 ~~~
     python manage.py runserver
 ~~~
-
-Stop the server typing Ctrl+C in terminal. 
 
