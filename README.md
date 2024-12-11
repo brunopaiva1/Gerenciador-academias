@@ -1,27 +1,33 @@
-#### Idealização do projeto
-Este projeto é referente a disciplina de manutenção de software da graduação em Tecnologia da informação e visa criar uma API de gerenciamento de academias
+## 1. SISTEMA DE GERENCIAMENTO DE ACADEMIA
 
-A estrutura inicial do projeto foi retirada do repositorio do [Laboratório de Inovação em Software e Automação](https://github.com/lisa-ufersa)
+O **Sistema de Reserva de Academia** é uma aplicação para gerenciar academias, clientes e funcionários. Permite cadastrar, editar e listar informações, além de aplicar controle de acesso e permissões de usuários.
 
-#### Tutorial de instalação 
+## 2. APPS
 
-- **Passo 1** - Crie o ambiente virtual 
-~~~
-    python3 -m venv venv
-~~~
+### 2.1. **academia**
+- **Objetivo**: Gerenciar informações das academias.
+- **Principais Componentes**:
+  - **Modelo**: `Academia` (nome, endereço, CNPJ, horários, mensalidade, etc.).
+  - **ViewSet**: `AcademiaViewSet` para listar, criar, editar e excluir academias.
 
-- **Passo 2** - Ative o ambiente virtual
-~~~
-    . venv/bin/activate
-~~~
+### 2.2. **users**
+- **Objetivo**: Gerenciar clientes, funcionários e usuários.
+- **Principais Componentes**:
+  - **Modelos**: 
+    - `Usuario`: Base para Cliente e Funcionário.
+    - `Cliente`: Contém informações de plano e validade.
+    - `Funcionario`: Contém informações de cargo, salário e horário de trabalho.
+  - **ViewSets**: `UsuarioViewSet`, `ClienteViewSet`, `FuncionarioViewSet` para listar, criar, editar e excluir dados.
 
-- **Passo 3** - Instale as dependencias
-~~~
-    pip install -r requirements.txt
-~~~
+## 3. Changelog e Melhorias Futuras
 
-- **Passo 4** - Rode o servidor interno
-~~~
-    python manage.py runserver
-~~~
+### Melhorias a serem implementadas:
+1. **Tratamento de Exceções**:
+   - Personalizar mensagens de erro (404, 500, etc.).
+   - Validar dados de entrada e exibir mensagens claras.
+
+2. **Novas Funcionalidades**:
+   - **Reserva de Horários**: Permitir que clientes reservem horários de acesso à academia.
+   - **Relatórios**: Gerar relatórios de frequência e desempenho.
+   - **Notificações**: Alertar clientes sobre o vencimento de planos.
 
