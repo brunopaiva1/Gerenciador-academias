@@ -2,7 +2,9 @@ from django.db import models
 
 
 class Academia(models.Model):
-
+    """
+    Criação dos campos da api de academia
+    """
     nome = models.CharField(max_length=100, unique=True)
     endereco = models.CharField(max_length=255)
     cidade = models.CharField(max_length=100)
@@ -13,12 +15,16 @@ class Academia(models.Model):
     cnpj = models.CharField(max_length=18, unique=True)
     horario_abertura = models.TimeField()
     horario_fechamento = models.TimeField()
-    mensalidade_padrao = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    mensalidade_padrao = models.DecimalField(max_digits=10, decimal_places=2,
+                                             blank=True, null=True)
 
     def __str__(self):
-        return self.nome
+        return f'Academia {self.nome}'
 
     class Meta:
+        """
+        Criação da classe meta
+        """
         app_label = 'academia'
         verbose_name = 'Academia'
         verbose_name_plural = 'Academias'
