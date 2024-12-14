@@ -1,6 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAdminUser
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
 
 from academia.api.serializers import AcademiaSerializer
 from academia.models import Academia

@@ -7,7 +7,7 @@ class UsuarioAdmin(admin.ModelAdmin):
     """
     Permissão de admin para a classe Usuario
     """
-    list_display = ('user', 'numero', 'endereço', 'aniversario', 'ativo',
+    list_display = ('user', 'numero', 'endereco', 'aniversario', 'ativo',
                     'academia', 'data_cadastro')
     search_fields = ('user__username', 'numero', 'academia__nome')
     list_filter = ('ativo', 'academia')
@@ -19,7 +19,8 @@ class FuncionarioAdmin(admin.ModelAdmin):
     """
     Permissão de admin para a classe Funcionaro
     """
-    list_display = ('user', 'cargo', 'salario', 'data_admissao', 'academia', 'ativo')
+    list_display = ('user', 'cargo', 'salario', 'data_admissao', 'academia',
+                    'ativo')
     search_fields = ('user__username', 'cargo', 'academia__nome')
     list_filter = ('cargo', 'academia', 'ativo')
     ordering = ('-data_admissao',)
@@ -30,7 +31,8 @@ class ClienteAdmin(admin.ModelAdmin):
     """
     Permissão de admin para a classe Cliente
     """
-    list_display = ('user', 'plano', 'data_inicio_plano', 'data_fim_plano', 'ativo', 'academia')
+    list_display = ('user', 'plano', 'data_inicio_plano', 'data_fim_plano',
+                    'ativo', 'academia')
     search_fields = ('user__username', 'plano', 'academia__nome')
     list_filter = ('plano', 'academia', 'ativo')
     ordering = ('-data_inicio_plano',)
