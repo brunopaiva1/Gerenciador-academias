@@ -4,7 +4,7 @@ PROJECT_DIR="/home/brunopaiva/Gerenciador-academias"
 VENV_DIR="$PROJECT_DIR/venv"
 
 ADDRESS="127.0.0.1"
-PORT=8000            
+PORT=8000
 
 check_dependencies() {
     echo "Verificando dependências..."

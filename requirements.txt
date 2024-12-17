@@ -23,3 +23,5 @@ typing_extensions==4.7.1
 uritemplate==4.1.1
 python-dotenv==1.0.1
 python-decouple==3.8
+precommit==4.0.1
+pylint==3.3.2

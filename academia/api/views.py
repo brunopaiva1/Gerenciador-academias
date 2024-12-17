@@ -1,3 +1,6 @@
+"""
+views da academia
+"""
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAdminUser
 from rest_framework.permissions import IsAuthenticated
@@ -11,6 +14,7 @@ class AcademiaViewSet(ModelViewSet):
     """
     Criação da view Academia
     """
+
     serializer_class = AcademiaSerializer
     permission_classes = [IsAuthenticated, IsAdminUser]
     queryset = Academia.objects.all()

@@ -13,7 +13,7 @@ O **Sistema de Reserva de Academia** é uma aplicação para gerenciar academias
 ### 2.2. **users**
 - **Objetivo**: Gerenciar clientes, funcionários e usuários.
 - **Principais Componentes**:
-  - **Modelos**: 
+  - **Modelos**:
     - `Usuario`: Base para Cliente e Funcionário.
     - `Cliente`: Contém informações de plano e validade.
     - `Funcionario`: Contém informações de cargo, salário e horário de trabalho.
@@ -30,4 +30,3 @@ O **Sistema de Reserva de Academia** é uma aplicação para gerenciar academias
    - **Reserva de Horários**: Permitir que clientes reservem horários de acesso à academia.
    - **Relatórios**: Gerar relatórios de frequência e desempenho.
    - **Notificações**: Alertar clientes sobre o vencimento de planos.
-

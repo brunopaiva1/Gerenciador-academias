@@ -1,3 +1,7 @@
+"""
+Modelos de informação do usuario
+"""
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -6,6 +10,7 @@ class Usuario(models.Model):
     """
     Criação dos campos da api Usuario
     """
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     numero = models.CharField(max_length=12)
     endereco = models.CharField(max_length=150)
@@ -13,12 +18,13 @@ class Usuario(models.Model):
     ativo = models.BooleanField(default=True)
     data_cadastro = models.DateTimeField(auto_now_add=True)
     ultima_atualizacao = models.DateTimeField(auto_now=True)
-    academia = models.ForeignKey('academia.Academia', on_delete=models.CASCADE)
+    academia = models.ForeignKey("academia.Academia", on_delete=models.CASCADE)
 
     class Meta:
         """
         Criação da Classe Meta
         """
+
         verbose_name = "Usuario"
         verbose_name_plural = "Usuarios"
 
@@ -27,17 +33,18 @@ class Cliente(Usuario):
     """
     Criação dos campos da api Cliente
     """
+
     PLANO = [
-        ('Mensal', 'Mensal'),
-        ('Semestral', 'Semestral'),
-        ('Anual', 'Anual'),
+        ("Mensal", "Mensal"),
+        ("Semestral", "Semestral"),
+        ("Anual", "Anual"),
     ]
 
     plano = models.CharField(
         max_length=50,
         choices=PLANO,
-        default='Mensal',
-        )
+        default="Mensal",
+    )
     data_inicio_plano = models.DateField()
     data_fim_plano = models.DateField()
     observacoes = models.TextField(blank=True, null=True)
@@ -46,6 +53,7 @@ class Cliente(Usuario):
         """
         Criação da Classe Meta
         """
+
         verbose_name = "Cliente"
         verbose_name_plural = "Clientes"
 
@@ -57,17 +65,14 @@ class Funcionario(Usuario):
     """
     Criação dos campos da api Funcionario
     """
+
     CARGOS = [
-        ('Gerente', 'Gerente'),
-        ('Instrutor', 'Instrutor'),
-        ('Recepcionista', 'Recepcionista'),
+        ("Gerente", "Gerente"),
+        ("Instrutor", "Instrutor"),
+        ("Recepcionista", "Recepcionista"),
     ]
 
-    cargo = models.CharField(
-        max_length=50,
-        choices=CARGOS,
-        default='Instrutor'
-    )
+    cargo = models.CharField(max_length=50, choices=CARGOS, default="Instrutor")
     salario = models.DecimalField(max_digits=10, decimal_places=2)
     data_admissao = models.DateField()
     horario_trabalho_inicio = models.TimeField()
@@ -77,6 +82,7 @@ class Funcionario(Usuario):
         """
         Criação da Classe Meta
         """
+
         verbose_name = "Funcionário"
         verbose_name_plural = "Funcionários"
 
