@@ -3,10 +3,12 @@ from django.contrib.auth.models import User
 
 
 class Usuario(models.Model):
-
+    """
+    Criação dos campos da api Usuario
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     numero = models.CharField(max_length=12)
-    endereço = models.CharField(max_length=150)
+    endereco = models.CharField(max_length=150)
     aniversario = models.DateField()
     ativo = models.BooleanField(default=True)
     data_cadastro = models.DateTimeField(auto_now_add=True)
@@ -14,12 +16,17 @@ class Usuario(models.Model):
     academia = models.ForeignKey('academia.Academia', on_delete=models.CASCADE)
 
     class Meta:
+        """
+        Criação da Classe Meta
+        """
         verbose_name = "Usuario"
         verbose_name_plural = "Usuarios"
 
 
 class Cliente(Usuario):
-
+    """
+    Criação dos campos da api Cliente
+    """
     PLANO = [
         ('Mensal', 'Mensal'),
         ('Semestral', 'Semestral'),
@@ -36,6 +43,9 @@ class Cliente(Usuario):
     observacoes = models.TextField(blank=True, null=True)
 
     class Meta:
+        """
+        Criação da Classe Meta
+        """
         verbose_name = "Cliente"
         verbose_name_plural = "Clientes"
 
@@ -44,7 +54,9 @@ class Cliente(Usuario):
 
 
 class Funcionario(Usuario):
-
+    """
+    Criação dos campos da api Funcionario
+    """
     CARGOS = [
         ('Gerente', 'Gerente'),
         ('Instrutor', 'Instrutor'),
@@ -62,6 +74,9 @@ class Funcionario(Usuario):
     horario_trabalho_fim = models.TimeField()
 
     class Meta:
+        """
+        Criação da Classe Meta
+        """
         verbose_name = "Funcionário"
         verbose_name_plural = "Funcionários"
 
