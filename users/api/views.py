@@ -1,13 +1,7 @@
-"""
-views da api do usuario
-"""
-
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from users.api.serializers import UsuarioSerializer, ClienteSerializer
-from users.api.serializers import FuncionarioSerializer
-
-from users.models import Usuario, Cliente, Funcionario
+from users.api.serializers import UsuarioSerializer, ClienteSerializer, FuncionarioSerializer
+from users.services import listar_usuarios, listar_funcionarios, listar_clientes
 
 
 class UsuarioViewSet(ModelViewSet):
@@ -17,8 +11,13 @@ class UsuarioViewSet(ModelViewSet):
 
     serializer_class = UsuarioSerializer
     permission_classes = [AllowAny]
-    queryset = Usuario.objects.all()
     http_method_names = ["get", "put"]
+
+    def get_queryset(self):
+        """
+        Usa a camada de serviços para obter os usuários.
+        """
+        return listar_usuarios()
 
 
 class FuncionarioViewSet(ModelViewSet):
@@ -28,8 +27,14 @@ class FuncionarioViewSet(ModelViewSet):
 
     serializer_class = FuncionarioSerializer
     permission_classes = [IsAuthenticated]
-    queryset = Funcionario.objects.all()
     filterset_fields = ["cargo", "ativo", "academia"]
+
+    def get_queryset(self):
+        """
+        Usa a camada de serviços para obter os funcionários com base nos filtros.
+        """
+        filtros = {key: self.request.query_params[key] for key in self.filterset_fields if key in self.request.query_params}
+        return listar_funcionarios(filtros)
 
 
 class ClienteViewSet(ModelViewSet):
@@ -39,5 +44,11 @@ class ClienteViewSet(ModelViewSet):
 
     serializer_class = ClienteSerializer
     permission_classes = [IsAuthenticated]
-    queryset = Cliente.objects.all()
     filterset_fields = ["plano", "ativo", "academia"]
+
+    def get_queryset(self):
+        """
+        Usa a camada de serviços para obter os clientes com base nos filtros.
+        """
+        filtros = {key: self.request.query_params[key] for key in self.filterset_fields if key in self.request.query_params}
+        return listar_clientes(filtros)

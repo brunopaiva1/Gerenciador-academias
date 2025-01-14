@@ -1,13 +1,8 @@
-"""
-views da academia
-"""
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import IsAdminUser
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 from academia.api.serializers import AcademiaSerializer
-from academia.models import Academia
+from academia.services import listar_academias
 
 
 class AcademiaViewSet(ModelViewSet):
@@ -17,4 +12,9 @@ class AcademiaViewSet(ModelViewSet):
 
     serializer_class = AcademiaSerializer
     permission_classes = [IsAuthenticated, IsAdminUser]
-    queryset = Academia.objects.all()
+
+    def get_queryset(self):
+        """
+        Sobrescreve o método para usar a camada de serviços.
+        """
+        return listar_academias()
