@@ -1,0 +1,67 @@
+@startuml
+' Definição dos modelos principais
+
+class Academia {
+    - nome: String
+    - endereco: String
+    - CNPJ: String
+    - horarios: String
+    - mensalidade: Float
+}
+
+class Usuario {
+    - nome: String
+    - email: String
+    - senha: String
+}
+
+class Cliente {
+    - plano: String
+    - validade: Date
+}
+
+class Funcionario {
+    - cargo: String
+    - salario: Float
+    - horarioTrabalho: String
+}
+
+' Relacionamentos
+Usuario <|-- Cliente
+Usuario <|-- Funcionario
+
+' ViewSets
+class AcademiaViewSet {
+    + listar()
+    + criar()
+    + editar()
+    + excluir()
+}
+
+class UsuarioViewSet {
+    + listar()
+    + criar()
+    + editar()
+    + excluir()
+}
+
+class ClienteViewSet {
+    + listar()
+    + criar()
+    + editar()
+    + excluir()
+}
+
+class FuncionarioViewSet {
+    + listar()
+    + criar()
+    + editar()
+    + excluir()
+}
+
+' Relacionamento entre modelos e ViewSets
+Academia --> AcademiaViewSet
+Usuario --> UsuarioViewSet
+Cliente --> ClienteViewSet
+Funcionario --> FuncionarioViewSet
+@enduml
