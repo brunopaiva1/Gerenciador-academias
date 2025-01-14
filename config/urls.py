@@ -29,6 +29,7 @@ router.register("users", UsuarioViewSet, basename="users")
 router.register("academia", AcademiaViewSet, basename="academia")
 router.register("cliente", ClienteViewSet, basename="cliente")
 router.register("funcionario", FuncionarioViewSet, basename="funcionario")
+router.register("usuario", UsuarioViewSet, basename="usuarios")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -37,4 +38,5 @@ urlpatterns = [
     path(
         "swagger/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"
     ),
+    path('usuario/', UsuarioViewSet.as_view({'post': 'create'}), name='usuario-create'),
 ] + router.urls
